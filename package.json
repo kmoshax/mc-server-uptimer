@@ -1,0 +1,41 @@
+{
+  "name": "mc-server-uptimer",
+  "version": "1.0.0",
+  "description": "Minecraft Server Uptimer",
+  "author": "kmosha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index --ignore *.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmoshax/mc-server-uptimer.git"
+  },
+  "keywords": [
+    "minecraft",
+    "aternos",
+    "mc",
+    "uptime",
+    "uptimer",
+    "kmosha",
+    "server",
+    "minecraft_server",
+    "aternos_server",
+    "minecraft_aternos",
+    "aternos_minecraft",
+    "kmoshacraft",
+    "youtube"
+  ],
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "mineflayer": "^4.14.0",
+    "mineflayer-cmd": "^1.1.3"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmoshax/mc-server-uptimer/issues"
+  },
+  "homepage": "https://github.com/kmoshax/mc-server-uptimer#readme"
+}
