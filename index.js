@@ -1,6 +1,14 @@
+require("dotenv").config();
 const mineflayer = require("mineflayer");
 const cmd = require("mineflayer-cmd").plugin;
-const config = require("./config");
+const express = require("express");
+const path = require("path");
+const app = express();
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
+const router = express.Router();
+
 const actions = ["forward", "back", "left", "right"];
 const pi = Math.PI;
 
@@ -8,11 +16,16 @@ let moving = false;
 let connected = false;
 let lastAction;
 
-const { ip: host, name: username, autonightskip: nightSkip } = config;
+/*
+ * SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_USERNAME
+ */
+
+const { SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_USERNAME } = process.env;
 
 const bot = mineflayer.createBot({
-  host: host,
-  username: `${username}_kmosha`,
+  host: SERVER_IP,
+  port: SERVER_PORT,
+  username: `${BOT_USERNAME}_kmosha`,
 });
 
 bot.loadPlugin(cmd);
@@ -53,4 +66,14 @@ bot.on("death", () => {
 
 bot.on("error", (err) => {
   console.log(`[ERROR]: ` + err.message);
+});
+
+router.get("/", (request, response) => {
+  response.render("index", { SERVER_NAME, SERVER_IP, SERVER_PORT });
+});
+
+app.use("/", router);
+
+app.listen(3000, function () {
+  console.log("Listening on port " + 3000);
 });
