@@ -20,7 +20,7 @@ let lastAction;
  * SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_USERNAME
  */
 
-const { SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_USERNAME } = process.env;
+const { SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_NAME } = process.env;
 
 const bot = mineflayer.createBot({
   host: SERVER_IP,
