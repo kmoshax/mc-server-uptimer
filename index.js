@@ -25,7 +25,7 @@ const { SERVER_IP, SERVER_NAME, SERVER_PORT, BOT_USERNAME } = process.env;
 const bot = mineflayer.createBot({
   host: SERVER_IP,
   port: SERVER_PORT,
-  username: `${BOT_USERNAME}_kmosha`,
+  username: `${BOT_USERNAME}`,
 });
 
 bot.loadPlugin(cmd);
